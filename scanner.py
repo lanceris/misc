@@ -1,5 +1,3 @@
-
-
 import argparse
 import json
 import os
@@ -85,14 +83,14 @@ def main(loop_time, path, ip, port):
             if sum(diff_new['index'].values()) != sum(diff_old['index'].values()):
                 a = compute_diff(diff_new,diff_old)
                 # Output example
-                for each in a:
-                    print(each.capitalize() + ':\n')
-                    for i in a[each]:
-                        if len(i) == 3:
-                            print(i[0] + '\n')
-                            print('Old size: {} bytes\nNew size: {} bytes\n'.format(i[1], i[2]))
-                        else:
-                            print(i + '\n')
+                # for each in a:
+                #     print(each.capitalize() + ':\n')
+                #     for i in a[each]:
+                #         if len(i) == 3:
+                #             print(i[0] + '\n')
+                #             print('Old size: {} bytes\nNew size: {} bytes\n'.format(i[1], i[2]))
+                #         else:
+                #             print(i + '\n')
                 send_msg(s,json.dumps(a)) # sends json-formatted string to the socket
 
 
