@@ -1,11 +1,11 @@
+
+
 import argparse
 import json
 import os
 import socket
 import sys
 import time
-
-from pprint import pprint
 
 
 def get_dir_index(path):
@@ -93,15 +93,15 @@ def main(loop_time, path, ip, port):
                             print('Old size: {} bytes\nNew size: {} bytes\n'.format(i[1], i[2]))
                         else:
                             print(i + '\n')
-                # send_msg(s,json.dumps(a)) # sends json-formatted string to the socket
+                send_msg(s,json.dumps(a)) # sends json-formatted string to the socket
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('path', type=str, help='Folder to scan.')
-    parser.add_argument('--ip', type=str, default='localhost', help='Server ip address.')
-    parser.add_argument('--port', type=int, default=8888, help='Server port.')
-    parser.add_argument('--loop', type=int, default=2, help='Time between folder scans(in seconds).')
+    parser.add_argument('--ip', metavar='127.0.0.1', type=str, default='localhost', help='Server ip address.')
+    parser.add_argument('--port', metavar='9812', type=int, default=9812, help='Server port.')
+    parser.add_argument('--loop', metavar='2', type=int, default=2, help='Time between directory scans(in seconds).')
     args = parser.parse_args()
 
     main(path=args.path, ip=args.ip, port=args.port, loop_time=args.loop)

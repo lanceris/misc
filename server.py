@@ -16,7 +16,7 @@ class ThreadedServer(object):
         self.sock.listen(5)
         while 1:
             client, addr = self.sock.accept()
-            #client.settimeout(60)
+            client.settimeout(60)
             threading.Thread(target=self.listenToClient, args=(client,addr)).start()
     def listenToClient(self, client, addr):
         print('New client: {}:{}'.format(addr[0], addr[1]))
@@ -60,11 +60,9 @@ class ThreadedServer(object):
         except:
             print('Unexpected error:', sys.exc_info()[0])
 
-server_ip = '192.168.0.38'
-
 if __name__ == '__main__':
     print('Server started.')
     print('Waiting for clients...')
-    a = ThreadedServer('localhost',8888)
+    a = ThreadedServer('localhost',9812)
     a.listen()
 
