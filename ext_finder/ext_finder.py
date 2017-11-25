@@ -88,6 +88,7 @@ def dump_files(path):
 
 
 def sort_files(ext_dict):
+    #FIXME
     """Takes ext_dict from collect_files(),
      creates directory for each extension
      and moves files with that extension into directory."""
@@ -98,4 +99,6 @@ def sort_files(ext_dict):
             os.rename(item, os.path.join(r, item.split('\\')[-1]))
 
 
-PATH = r'C:\Users\lanceris\Downloads'
+
+
+PATH = r'C:\Users\lanceris\Desktop\testdir'
